@@ -6,9 +6,12 @@ Concrete IO class for a specific dataset
 # License: TBD
 
 from code.base_class.dataset import dataset
+from code.base_class.setting import setting
+import numpy as np
+import csv
 
 
-class Dataset_Loader(dataset):
+class Dataset_Loader(dataset, setting):
     data = None
     dataset_source_folder_path = None
     dataset_source_file_name = None
@@ -21,10 +24,18 @@ class Dataset_Loader(dataset):
         X = []
         y = []
         f = open(self.dataset_source_folder_path + self.dataset_source_file_name, 'r')
-        for line in f:
-            line = line.strip('\n')
-            elements = [int(i) for i in line.split(' ')]
-            X.append(elements[:-1])
-            y.append(elements[-1])
+        # strip the
+        i = 0
+        reader = csv.reader(f, delimiter="\t")
+        for i, line in enumerate(reader):
+            elements = [int(i) for i in line[0].split(',')]
+            # print(i, "\t", line)
+            X.append(elements[1:]) # load features into list
+            y.append(elements[0]) # load labels into list
+
         f.close()
+        X = np.array(X) # change feature list into matrix
+        y = np.array(y) # change # labels list into matrix
+        print(X_train.shape)
+
         return {'X': X, 'y': y}

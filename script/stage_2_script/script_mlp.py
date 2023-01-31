@@ -15,9 +15,18 @@ if 1:
     #------------------------------------------------------
 
     # ---- objection initialization setction ---------------
-    data_obj = Dataset_Loader('toy', '')
-    data_obj.dataset_source_folder_path = '../../data/stage_2_data/'
-    data_obj.dataset_source_file_name = 'toy_data_file.txt'
+    data_obj = Dataset_Loader('train', '')
+    data_obj.dataset_source_folder_path = '../../data/stage_2_data/stage_2_data/'
+    data_obj.dataset_source_file_name = 'train.csv'
+
+    data_obj.load()
+
+    # --- training data
+    test_data_obj = Dataset_Loader('test', '')
+    test_data_obj.dataset_source_folder_path = '../../data/stage_2_data/stage_2_data/'
+    test_data_obj.dataset_source_file_name = 'test.csv'
+
+    test_data_obj.load()
 
     method_obj = Method_MLP('multi-layer perceptron', '')
 
