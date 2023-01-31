@@ -16,17 +16,13 @@ if 1:
 
     # ---- objection initialization setction ---------------
     data_obj = Dataset_Loader('train', '')
-    data_obj.dataset_source_folder_path = '../../data/stage_2_data/stage_2_data/'
+    data_obj.dataset_source_folder_path = '../../data/stage_2_data/'
     data_obj.dataset_source_file_name = 'train.csv'
+    data_obj.dataset2_source_folder_path = '../../data/stage_2_data/'
+    data_obj.dataset2_source_file_name = 'test.csv'
 
     data_obj.load()
 
-    # --- training data
-    test_data_obj = Dataset_Loader('test', '')
-    test_data_obj.dataset_source_folder_path = '../../data/stage_2_data/stage_2_data/'
-    test_data_obj.dataset_source_file_name = 'test.csv'
-
-    test_data_obj.load()
 
     method_obj = Method_MLP('multi-layer perceptron', '')
 
@@ -34,9 +30,8 @@ if 1:
     result_obj.result_destination_folder_path = '../../result/stage_2_result/MLP_'
     result_obj.result_destination_file_name = 'prediction_result'
 
-    setting_obj = Setting_KFold_CV('k fold cross validation', '')
-    #setting_obj = Setting_Tra
-    # in_Test_Split('train test split', '')
+    #setting_obj = Setting_KFold_CV('k fold cross validation', '')
+    setting_obj = Setting_Train_Test_Split('train test split', '')
 
     evaluate_obj = Evaluate_Accuracy('accuracy', '')
     # ------------------------------------------------------
