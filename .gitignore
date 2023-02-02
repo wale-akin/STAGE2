@@ -2,7 +2,7 @@
 *.csv
 .DS_Store
 .idea
-result
+result/stage_2_result/MLP_prediction_result_None
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
