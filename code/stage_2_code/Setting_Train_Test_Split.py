@@ -15,7 +15,7 @@ class Setting_Train_Test_Split(setting):
         
         # load dataset
         loaded_data = self.dataset.load()
-        training_data= loaded_data[0]
+        training_data = loaded_data[0]
         testing_data = loaded_data[1]
         print(training_data)
         X_train = training_data['X']
@@ -35,5 +35,3 @@ class Setting_Train_Test_Split(setting):
         self.evaluate.data = learned_result
         
         return self.evaluate.evaluate(), None
-
-        

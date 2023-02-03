@@ -29,7 +29,7 @@ class Method_MLP(method, nn.Module):
         self.fc_layer_1 = nn.Linear(784, 256)
         # check here for nn.ReLU doc: https://pytorch.org/docs/stable/generated/torch.nn.ReLU.html
         self.activation_func_1 = nn.ReLU()
-        self.fc_layer_2 = nn.Linear(256, 16)
+        self.fc_layer_2 = nn.Linear(256, 10)
         # check here for nn.Softmax doc: https://pytorch.org/docs/stable/generated/torch.nn.Softmax.html
         self.activation_func_2 = nn.Softmax(dim=1)
 
