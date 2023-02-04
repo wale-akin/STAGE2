@@ -48,12 +48,16 @@ class Method_MLP(method, nn.Module):
     def forward(self, x):
         '''Forward propagation'''
         # hidden layer embeddings
-        h = self.activation_func_1(self.fc_layer_1(x))
-        # outout layer result
+        h = self.activation_func_1(self.fc_layer_1(x)) # layer 256
+        h2 = self.activation_func_2(self.fc_layer_2(h))# layer 128
+        h3 = self.activation_func_3(self.fc_layer_3(h2))# layer 64
+
+        # out layer result
         # self.fc_layer_2(h) will be a nx2 tensor
         # n (denotes the input instance number): 0th dimension; 2 (denotes the class number): 1st dimension
         # we do softmax along dim=1 to get the normalized classification probability distributions for each instance
-        y_pred = self.activation_func_2(self.fc_layer_2(h))
+
+        y_pred = self.activation_func_4(self.fc_layer_4(h3))  # output
         return y_pred
 
     # backward error propagation will be implemented by pytorch automatically
