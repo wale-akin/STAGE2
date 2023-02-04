@@ -3,6 +3,7 @@ from code.stage_2_code.Method_MLP import Method_MLP
 from code.stage_2_code.Result_Saver import Result_Saver
 from code.stage_2_code.Setting_KFold_CV import Setting_KFold_CV
 from code.stage_2_code.Setting_Train_Test_Split import Setting_Train_Test_Split
+from code.stage_2_code.Setting_Train_Test import Setting_Train_Test
 from code.stage_2_code.Evaluate_Accuracy import Evaluate_Accuracy
 import numpy as np
 import torch
@@ -31,7 +32,7 @@ if 1:
     result_obj.result_destination_file_name = 'prediction_result'
 
     #setting_obj = Setting_KFold_CV('k fold cross validation', '')
-    setting_obj = Setting_Train_Test_Split('train test split', '')
+    setting_obj = Setting_Train_Test('train test split', '')
 
     evaluate_obj = Evaluate_Accuracy('accuracy', '')
     # ------------------------------------------------------

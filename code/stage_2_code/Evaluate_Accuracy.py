@@ -7,16 +7,24 @@ Concrete Evaluate class for a specific evaluation metrics
 
 from code.base_class.evaluate import evaluate
 from sklearn.metrics import accuracy_score
+from sklearn.metrics import precision_score
+from sklearn.metrics import recall_score
+from sklearn.metrics import f1_score
 
 
 class Evaluate_Accuracy(evaluate):
     data = None
-    
+
     def evaluate(self):
         print('evaluating performance...')
         return accuracy_score(self.data['true_y'], self.data['pred_y'])
 
-# try and implment a new function with f1 versions
-# could i call f1 and try and print in evaluate
-# probably would have to test different evaluation method one by one unless
-# i find a way to return multiple evals at once
+    def evaluate_precision(self):
+        return precision_score(self.data['true_y'], self.data['pred_y'], average='weighted', zero_division=0)
+
+    def evaluate_recall(self):
+        return recall_score(self.data['true_y'], self.data['pred_y'], average='weighted', zero_division=0)
+
+    def evaluate_f1(self):
+        return f1_score(self.data['true_y'], self.data['pred_y'], average='weighted', zero_division=0)
+        
