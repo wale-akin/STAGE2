@@ -16,7 +16,7 @@ class Setting_Train_Test_Split(setting):
 
         # load dataset
         loaded_data = self.dataset.load()
-<<<<<<< HEAD
+
         training_data = loaded_data[0]
         testing_data = loaded_data[1]
         print(training_data)
@@ -25,10 +25,6 @@ class Setting_Train_Test_Split(setting):
         X_test = testing_data['X']
         y_test = testing_data['y']
         #X_train, X_test, y_train, y_test = train_test_split(loaded_data['X'], loaded_data['y'], test_size = 0.33)
-=======
-
-        X_train, X_test, y_train, y_test = train_test_split(loaded_data['X'], loaded_data['y'], test_size = 0.33)
->>>>>>> eebd5f1656a12bf9111b21a2a381c59c755f944b
 
         # run MethodModule
         self.method.data = {'train': {'X': X_train, 'y': y_train}, 'test': {'X': X_test, 'y': y_test}}
